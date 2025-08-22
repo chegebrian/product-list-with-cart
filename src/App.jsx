@@ -1,12 +1,17 @@
 
 import './App.css'
+import DessertCard from './components/DessertCard'
 
 function App() {
 
 
   return (
 
-    <p>hello react</p>
+    <main>
+      <h2>desserts</h2>
+      <DessertCard/>
+      
+    </main>
   )
 }
 
