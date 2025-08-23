@@ -10,13 +10,19 @@ function App() {
   return (
 
 
-    <main className='bg-amber-50'>
-      <h2 className='text-3xl capitalize text-amber-950 font-bold'>desserts</h2>
-      <section className='grid grid-cols-3 gap-2'>
+    <main className='bg-amber-50 grid grid-cols-3 px-4 py-4'>
+      <section className='col-start-1 col-end-3 px-8'>
 
-        {desserts?.map((dessert, index) => <DessertCard dessert={dessert} key={index} />)}
+        <h2 className='text-3xl capitalize text-amber-950 font-bold mb-8'>desserts</h2>
+        <div className='grid grid-cols-3 gap-4'>
+
+          {desserts?.map((dessert, index) => <DessertCard dessert={dessert} key={index} />)}
+        </div>
       </section>
-      <Cart/>
+      <section className='col-start-3 col-end-4'>
+
+      <Cart />
+      </section>
 
     </main>
   )

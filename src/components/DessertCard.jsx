@@ -10,10 +10,10 @@ function DessertCard({ dessert }) {
 
             <img src={mobile} alt={name} className='rounded-lg'/>
         
-            <div className='relative'>
-                <div className="absolute -top-8 left-1/4">
+            <div>
+                <div className="relative flex items-center justify-center">
 
-                    <button className='flex items-center cursor-pointer gap-2 bg-amber-50 py-4 px-6 font-semibold border text-amber-950 border-amber-700 rounded-full'><img src="/assets/images/icon-add-to-cart.svg" alt="add-to-cart-icon" />Add to Cart</button>
+                    <button className='flex items-center absolute cursor-pointer gap-2 bg-amber-50 py-2 px-6 font-semibold border text-amber-950 border-amber-700 rounded-full'><img src="/assets/images/icon-add-to-cart.svg" alt="add-to-cart-icon" />Add to Cart</button>
                 </div>
                 <div className='flex flex-col items-start gap-3 pt-8'>
                     <span className='text-amber-900 text-lg'>{category}</span>
