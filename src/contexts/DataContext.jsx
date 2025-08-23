@@ -6,6 +6,7 @@ const dessertsContext = createContext()
 
 function DessertsProvider({ children }) {
     const [desserts, setDesserts] = useState()
+    const [cart, setCart] = useState([])
     useEffect(() => {
         async function fetchData() {
             try {
@@ -22,7 +23,7 @@ function DessertsProvider({ children }) {
         fetchData()
     }, [])
     return (
-        <dessertsContext.Provider value={{ desserts }}>{children}</dessertsContext.Provider>
+        <dessertsContext.Provider value={{ desserts, cart, setCart }}>{children}</dessertsContext.Provider>
     )
 }
 
