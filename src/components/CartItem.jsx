@@ -1,8 +1,13 @@
 import React from 'react'
+import { useDessertsApi } from '../contexts/DataContext'
 
-function CartItem({dessert}) {
+function CartItem({ dessert }) {
     const { image: { thumbnail, mobile, tablet, desktop }, name, category, price } = dessert
-    const formatter = new Intl.NumberFormat("en-us",{style:"currency", currency:"USD"})
+    const { setCart } = useDessertsApi()
+    function handleRemoveItem(selectedDessert) {
+        setCart((cart) => cart?.filter((item) => item.name !== selectedDessert))
+    }
+    const formatter = new Intl.NumberFormat("en-us", { style: "currency", currency: "USD" })
     const numberOfDesserts = 2
     const cost = price * numberOfDesserts
     return (
@@ -17,7 +22,7 @@ function CartItem({dessert}) {
                     <span className='text-amber-900 font-semibold'>{formatter.format(cost)}</span>
                 </div>
             </div>
-            <span className='border border-amber-900 w-4 h-4 rounded-[100%] cursor-pointer p-1 flex items-center justify-center'><img src="/assets/images/icon-remove-item.svg" alt="cross-image" /></span>
+            <span onClick={() => handleRemoveItem(name)} className='border border-amber-900 w-4 h-4 rounded-[100%] cursor-pointer p-1 flex items-center justify-center'><img src="/assets/images/icon-remove-item.svg" alt="cross-image" /></span>
         </div>
     )
 }
