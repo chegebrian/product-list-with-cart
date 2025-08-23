@@ -6,13 +6,19 @@ function DessertCard({ dessert }) {
     const formatter = new Intl.NumberFormat("en-us", { currency: "USD", style: "currency" })
     return (
         <div className='max-w-xs'>
-            <img src={mobile} alt={name} />
-            <div>
-                <button className='flex items-center gap-2 py-4 px-6 font-semibold border border-amber-700 rounded-full'><img src="/assets/images/icon-add-to-cart.svg" alt="add-to-cart-icon" />Add to Cart</button>
-                <div>
-                    <span>{category}</span>
-                    <span>{name}</span>
-                    <span>{formatter.format(price)}</span>
+          
+
+            <img src={mobile} alt={name} className='rounded-lg'/>
+        
+            <div className='relative'>
+                <div className="absolute -top-8 left-1/4">
+
+                    <button className='flex items-center gap-2 bg-amber-50 py-4 px-6 font-semibold border text-amber-950 border-amber-700 rounded-full'><img src="/assets/images/icon-add-to-cart.svg" alt="add-to-cart-icon" />Add to Cart</button>
+                </div>
+                <div className='flex flex-col items-start gap-3 pt-8'>
+                    <span className='text-amber-900 text-lg'>{category}</span>
+                    <span className='font-semibold text-xl text-amber-950'>{name}</span>
+                    <span className='text-amber-600 font-semibold'>{formatter.format(price)}</span>
                 </div>
             </div>
         </div>
@@ -20,3 +26,4 @@ function DessertCard({ dessert }) {
 }
 
 export default DessertCard
+
