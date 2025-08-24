@@ -8,8 +8,6 @@ function App() {
   const { desserts } = useDessertsApi()
 
   return (
-
-
     <main className='bg-amber-50 grid grid-cols-3 px-4 py-4'>
       <section className='col-start-1 col-end-3 px-8'>
 
@@ -21,7 +19,7 @@ function App() {
       </section>
       <section className='col-start-3 col-end-4'>
 
-      <Cart />
+        <Cart />
       </section>
 
     </main>

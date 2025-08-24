@@ -1,6 +1,7 @@
 import React from 'react'
 import CartItem from './CartItem'
 import { useDessertsApi } from '../contexts/DataContext'
+import Modal from '../ui/Modal'
 
 function Cart() {
     const { cart } = useDessertsApi()
@@ -24,7 +25,8 @@ function Cart() {
                     <span className='text-2xl font-semibold text-amber-950'>{formatter.format(totalCost)}</span>
                 </div>
                 <p className='text-amber-900 flex items-center gap-2 justify-center bg-amber-50 py-2 px-4 rounded-md'><img src="/assets/images/icon-carbon-neutral.svg" alt="carbon-neutral-svg" /> This is a <span className='text-amber-950 font-semibold'>carbon-neutral</span>  delivery</p>
-                <button className='capitalize bg-amber-600 cursor-pointer rounded-full py-2 px-4 text-amber-50 font-semibold'>confirm order</button>
+                <Modal />
+                {/* <button className='capitalize bg-amber-600 cursor-pointer rounded-full py-2 px-4 text-amber-50 font-semibold'>confirm order</button> */}
             </div>}
         </div>
     )
