@@ -2,7 +2,7 @@ import React from 'react'
 import { useDessertsApi } from '../contexts/DataContext'
 
 function CartItem({ dessert }) {
-    const { image: { thumbnail, mobile, tablet, desktop }, name, category, price } = dessert
+    const { name, price } = dessert
     const { setCart } = useDessertsApi()
     function handleRemoveItem(selectedDessert) {
         setCart((cart) => cart?.filter((item) => item.name !== selectedDessert))

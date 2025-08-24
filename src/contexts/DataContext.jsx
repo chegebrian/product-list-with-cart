@@ -5,8 +5,24 @@ const dessertsContext = createContext()
 
 
 function DessertsProvider({ children }) {
-    const [desserts, setDesserts] = useState()
+    const [desserts, setDesserts] = useState([])
     const [cart, setCart] = useState([])
+    const [quantity, setQuantity] = useState(1)
+    // function handleQuantity(selectedQuantity) {
+    //     setQuantity(selectedQuantity + 1)
+    // }
+    function handleCountIncrement(item) {
+        const newItem = { ...item, quantity: 1 }
+        setCart((cart) => cart?.map((dessert) => dessert.name === newItem.name ? { ...dessert, quantity: dessert.quantity + 1 } : dessert))
+        const quantity = cart?.map((dessert) => dessert.name === newItem.name && dessert.quantity)
+
+        // handleQuantity(quantity)
+        setQuantity(quantity)
+    }
+    function handleCountDecrement(item) {
+        const newItem = { ...item, quantity: 1 }
+        setCart((cart) => cart?.map((dessert) => dessert.name === newItem.name ? { ...dessert, quantity: dessert.quantity < 1 ? 0 : dessert.quantity - 1 } : dessert))
+    }
     useEffect(() => {
         async function fetchData() {
             try {
@@ -23,7 +39,7 @@ function DessertsProvider({ children }) {
         fetchData()
     }, [])
     return (
-        <dessertsContext.Provider value={{ desserts, cart, setCart }}>{children}</dessertsContext.Provider>
+        <dessertsContext.Provider value={{ desserts, cart, setCart, handleCountDecrement, handleCountIncrement, quantity }}>{children}</dessertsContext.Provider>
     )
 }
 
