@@ -8,7 +8,7 @@ function CartItem({ dessert }) {
         setCart((cart) => cart?.filter((item) => item.name !== selectedDessert))
     }
     const findDessert = cart?.find((item) => item.name === name)
-    console.log(findDessert.quantity);
+  
     
     const formatter = new Intl.NumberFormat("en-us", { style: "currency", currency: "USD" })
     const numberOfDesserts = findDessert.quantity

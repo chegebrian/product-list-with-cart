@@ -10,10 +10,10 @@ function Button({ dessert }) {
     
 
         const cartItem = cart?.map((d) => d.name === dessert.name && d)
-        console.log(cartItem);
+       
 
         const selectedItem = cartItem?.find((item) => item.name === dessert.name)
-        console.log(selectedItem);
+       
         
         setQuantity(selectedItem.quantity)
 
