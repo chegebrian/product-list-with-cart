@@ -9,16 +9,12 @@ function DessertCard({ dessert }) {
     const { setCart, cart } = useDessertsApi()
     function handleSetCart(selectedDessert) {
         const item = cart?.find((dessert) => dessert.name === selectedDessert.name)
-        // console.log(item);
         if (item) return  ;
         setCart((cart) => [...cart,{...selectedDessert, quantity:1}])
     }
 
-    console.log(cart);
-
     return (
         <div className='max-w-xs' >
-
 
             <img src={mobile} alt={name} className='rounded-lg' />
 
@@ -26,7 +22,7 @@ function DessertCard({ dessert }) {
                 <div className="relative flex items-center justify-center">
 
                     {cart?.find((item) => item.name === name) ? <Button dessert={dessert} /> : <button onClick={() => handleSetCart(dessert)} className='flex items-center absolute cursor-pointer gap-2 bg-amber-50 py-2 px-6 font-semibold border text-amber-950 border-amber-700 rounded-full'><img src="/assets/images/icon-add-to-cart.svg" alt="add-to-cart-icon" />Add to Cart</button>}
-                    {/* <button onClick={() => handleSetCart(dessert)} className='flex items-center absolute cursor-pointer gap-2 bg-amber-50 py-2 px-6 font-semibold border text-amber-950 border-amber-700 rounded-full'><img src="/assets/images/icon-add-to-cart.svg" alt="add-to-cart-icon" />Add to Cart</button> */}
+                   
                 </div>
                 <div className='flex flex-col items-start gap-3 pt-8'>
                     <span className='text-amber-900 text-lg'>{category}</span>
